@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import Image from "next/image";
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
@@ -15,18 +15,19 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+    <div className="h-fit w-fit bg-gray-100 flex items-center justify-center">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-sm px-8 py-10">
         {/* Logo */}
         <div className="flex justify-center mb-8">
-          <img
-            src="https://www.centralbankofindia.co.in/sites/default/files/CBI%20Logo.png"
-            alt="Central Bank of India"
+
+          <Image
+            loading="eager"
+
+            src="/idbi_logo.png"
+            alt="IDBI Logo"
+            width={1920}
+            height={1080}
             className="h-16 object-contain"
-            onError={(e) => {
-              // Fallback if image doesn't load
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
           />
         </div>
 
