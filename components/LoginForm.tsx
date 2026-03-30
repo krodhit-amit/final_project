@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 export default function LoginForm() {
@@ -11,6 +11,7 @@ export default function LoginForm() {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // Add your login logic here
+    window.location.href = "/dashboard";
     console.log({ username, password, rememberMe });
   };
 
@@ -47,6 +48,7 @@ export default function LoginForm() {
           <input
             id="username"
             type="text"
+            required
             placeholder="Enter your Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -65,6 +67,7 @@ export default function LoginForm() {
           <div className="relative">
             <input
               id="password"
+              required
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               value={password}
